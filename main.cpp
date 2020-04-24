@@ -15,8 +15,8 @@
 
 int main(){
     
-    vector<Matrix> local_K;
-    vector<Vector> local_B;
+    vector<Matrix> localKs;
+    vector<Vector> localBs;
     
     Matrix K;
     Vector b;
@@ -25,11 +25,11 @@ int main(){
     mesh m;
     leerMallayCondiciones(m);
 
-    crearSistemasLocales(m,local_K,local_B);
+    crearSistemasLocales(m,localKs,localBs);
     
     zeroes(K,m.getSize(NODES));
     zeroes(b,m.getSize(NODES));
-    ensamblaje(m,local_K,local_B,K,b);
+    ensamblaje(m,localKs,localBs,K,b);
     
     applyNeumann(m,b);
     
